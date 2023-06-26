@@ -18,7 +18,7 @@
 <CHANGES>
 ##&name;
 ###2023.6.26
-Upgrade packages to nut 2.8 and net-snmp 5.9.3
+-Upgrade packages to nut 2.8 and net-snmp 5.9.3
 ###2022.03.20
 -fix for filetree top level
 -update nut footer
@@ -45,8 +45,8 @@ The 'nut-package' file.
 <MD5>2c7a37ac49a3c752536b7f4f43777cc2</MD5>
 </FILE>
 
-<FILE Name="&plgPATH2;/net-snmp-5.9.3-x86_64-1.txz" Min="6.11" Run="upgradepkg --install-new">
-<URL>&pkgURL2;/net-snmp-5.9.3-x86_64-1.txz</URL>
+<FILE Name="&plgPATH;/net-snmp-5.9.3-x86_64-1.txz" Min="6.11" Run="upgradepkg --install-new">
+<URL>&pkgURL;/net-snmp-5.9.3-x86_64-1.txz</URL>
 <MD5>5beebc819894c94bedbc531d47cfe497</MD5>
 </FILE>
 
@@ -104,7 +104,7 @@ if [ "${sum1:0:32}" != "${sum2:0:32}" ]; then
 else
     # upgrade plugin package
     upgradepkg --install-new &plgPATH;/&plgNAME;.txz
-    upgradepkg --install-new &plgPATH2;/&plgNAME2;.txz
+    upgradepkg --install-new &plgPATH;/&plgNAME;.txz
 
     # Stop service
     echo "stopping services..."
