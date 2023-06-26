@@ -17,6 +17,8 @@
 
 <CHANGES>
 ##&name;
+###2023.6.26
+Upgrade packages to nut 2.8 and net-snmp 5.9.3
 ###2022.03.20
 -fix for filetree top level
 -update nut footer
@@ -25,119 +27,6 @@
 - cybrnook -update help text to reflect minutes
 ###2020.05.16
 - gfjardim - Show dashboard even if footer is disabled
-###2020.05.11
-- update nut package for 6.8
-###2020.03.17
-- gfjardim - added footer and dashboard plus many other tweaks
-###2019.02.03
-- update all icons to fa icons
-- fix editor font in black theme
-###2019.01.24
-- update settings icon to fa font
-###2018.11.25
-- add autov to css and js
-- build nut package from usblib-1.0 branch
-- remove support link from readme
-###2018.05.09
-- fix Autodetect
-- fix null port error
-###2018.04.29
-- fix rc script interfering with cupsd
-- fix Run time in red only when on battery thanks @realies
-- compile nut-2.7.4.20180429 libusb 1.0+0.1 branch for 6.5 added patch for wait and retry
-###2018.01.16
-- tweak notification event and subject
-###2018.01.14
-- fix nut power showing 0
-###2018.01.09
-- update nut package to 2.7.4 2017.11.29 commit fd7189d
-- revert Eaton use-case since it is included in nut package
-- add ups va and watt capacity inputs for ups that do not present real power nominal
-###2018.01.06
-- add Eaton use-case to improve load accuracy thanks @realies
-###2018.01.03
-- fix load for ups with ups.power.nominal vs ups.realpower.nominal
-###2017.11.29
-- fix permissions so nut conf are not world readable
-- fix nut-scanner options, only scan usb for auto config
-###2017.11.26
-- fix plugin install service starting when disabled
-###2017.11.25
-- fix snmp port input box length and add ip mask
-###2017.11.03
-- update killpower flag
-- update permissions and security for nut configs
-- change username and password variables
-- add slave user and password
-###2017.10.28
-- downgrade nut package to 2.7.4 due to usb resets in 6.4rc10b
-###2017.10.10
-- fix ipaddr filter
-- update input masks for ipaddr, name and username
-###2017.10.08a
-- fix move old pids to new location
-- compile nut package to latest commit 2017.09.21
-- fix: new nut package uses /etc/nut and /var/run/nut
-###2017.10.05
-- fix add username and password to upsd users
-- add autorefresh to editor to fix line number placement
-- move cdnjs to local
-- update support for new themes
-###2017.09.17
-- add ability to change UPS Monitor Name, User and Password
-- update icons
-###2017.06.17a
-- add support for 6.4 themes
-###2017.06.04
-- add net-snmp package
-###2017.05.27
-- add autodetection for UPS
-- fix ip mask
-###2017.05.26
-- add master/slave options
-- fix runtime display format
-###2017.05.24
-- add dropdown options for battery and timers
-- add killpower flag condition to shutdown script
-###2017.05.22
-- fix shutdown scripts
-- move default nut conf files
-###2017.05.20
-- fix manual config  settings
-###2017.05.19
-- fix reload button
-- add start conditions to rc script
-###2017.05.17
-- add manual mode, reload and config editor to settings page
-- reformat settings page, hide unused vars
-- add vars, rewrite, combine and move scripts
-- add snmp settings from Ambrotos fork - untested
-- add UPS summary, UPS details page and dashboard page
-- add dynamix plugin api
-- remove depreciated code
-- restructure and repackage plugin
-- rename nut plugin package to difer from nut package
-
-###2015.09.19###
-- UPS statistics now auto updates(every two seconds)
-
-###2015.08.24###
-- added launch from plugins(saarg)
-
-###2015.08.23###
-- added blazer_ser to drivers
-
-###2015.08.23###
-- Public Release
-- Fix, Restart on upgrades
-
-###2015.08.22###
-- Uninstall fixes
-- Fix autorestart after upgrade
-- Make USB drivers selectable
-- Add shutdown on battery levels
-- Remove user/password and hardcode them (see plugin help)
-- Moved scripts to plugin folder for 6.1 (ln -s rc.nut)
 
 ###2015.08.21###
 - Initial Release
@@ -151,25 +40,16 @@ dependency files
 <!--
 The 'nut-package' file.
 -->
-<FILE Name="&plgPATH;/nut-2.7.4.20200318-x86_64-1.txz" Min="6.8" Run="upgradepkg --install-new">
-<URL>&pkgURL;/nut-2.7.4.20200318-x86_64-1.txz</URL>
-<MD5>52de2867d6b8f6bc1a98a45870b05420</MD5>
+<FILE Name="&plgPATH;/nut-2.8.0-x86_64-1.txz" Min="6.11" Run="upgradepkg --install-new">
+<URL>&pkgURL;/nut-2.8.0-x86_64-1.txz</URL>
+<MD5>2c7a37ac49a3c752536b7f4f43777cc2</MD5>
 </FILE>
 
-<FILE Name="&plgPATH;/nut-2.7.4.20181125-x86_64-1.txz" Min="6.5" Max="6.7.99" Run="upgradepkg --install-new">
-<URL>&pkgURL;/nut-2.7.4.20181125-x86_64-1.txz</URL>
-<MD5>a46d656085991e02a605786007412d76</MD5>
+<FILE Name="&plgPATH2;/net-snmp-5.9.3-x86_64-1.txz" Min="6.11" Run="upgradepkg --install-new">
+<URL>&pkgURL2;/net-snmp-5.9.3-x86_64-1.txz</URL>
+<MD5>5beebc819894c94bedbc531d47cfe497</MD5>
 </FILE>
 
-<FILE Name="&plgPATH;/nut-2.7.4.20171129-x86_64-1.txz" Min="6.1" Max="6.4.99" Run="upgradepkg --install-new">
-<URL>&pkgURL;/nut-2.7.4.20171129-x86_64-1.txz</URL>
-<MD5>24702ef930855db3432ed9ee73e93d42</MD5>
-</FILE>
-
-<FILE Name="&plgPATH;/net-snmp-5.7.3-x86_64-4.txz" Min="6.1" Run="upgradepkg --install-new">
-<URL>&pkgURL;/net-snmp-5.7.3-x86_64-4.txz</URL>
-<MD5>b9ef68216b97cb5f0bcd9f3312e5941e</MD5>
-</FILE>
 
 <!--
 The 'plugin' package file.
@@ -208,8 +88,8 @@ The 'install' script.
 <INLINE>
 #Verify Unraid Version
 source /etc/unraid-version
-if [[ ${version:0:3} == 6.0 ]]; then
-    echo "Unraid version 6.1 or higher is required"
+if [[ ${version:0:3} == 6.11 ]]; then
+    echo "Unraid version 6.11 or higher is required"
     exit 1
 fi
 
@@ -224,6 +104,7 @@ if [ "${sum1:0:32}" != "${sum2:0:32}" ]; then
 else
     # upgrade plugin package
     upgradepkg --install-new &plgPATH;/&plgNAME;.txz
+    upgradepkg --install-new &plgPATH2;/&plgNAME2;.txz
 
     # Stop service
     echo "stopping services..."
